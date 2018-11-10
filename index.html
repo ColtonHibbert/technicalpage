@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mockup Technical Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<main id="main-doc" class="main-doc">
+<nav id="navbar" class="bluebox">
+  
+  <header class="kidblueboxtitle">CSS Positioning
+  </header>
+  <div class="kidbluebox"><a href="#Document_Flow" class="nav-link">Document Flow</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Intro_to_Positioning">Intro to Positioning</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Static_Position">Static Position</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Relative_Positioning">Relative Positioning</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Absolute_Positioning">Absolute Positioning</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Positioning_Contexts">Positioning Contexts</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Introducing_z-index">Introducing z-index</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Fixed_Positioning">Fixed Positioning</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Position_Sticky">Position Sticky</a>
+  </div>
+  <div class="kidbluebox"><a class="nav-link" href="#Summary">Summary</a>
+  </div>
+  
+</nav> <!-- bluebox -->
+  
+ <div class="redbox">
+   
+  <section id="Document_Flow" class="redboxkid main-section">
+    <header>
+      <h2 class="mainheader">
+        Document Flow
+      </h2>
+    </header>
+      <p>
+        Positioning allows you to take elements out of the normal document layout flow, and make them behave differently; for example sitting on top of one another, or always remaining in the same place inside the browser viewport. This article explains the different <span>position</span> values, and how to use them.
+      </p>
+  </section>
+    
+  <section id="Intro_to_Positioning" class="redboxkid main-section"> 
+    <header>
+    <h2 class="mainheader">
+      Intro to Positioning
+    </h2>
+    </header>
+    <p>
+      The whole idea of positioning is to allow us to override the basic document flow behavior described above, to produce interesting effects. What if you want to slightly alter the position of some boxes inside a layout from their default layout flow position, to give a slightly quirky, distressed feel? Positioning is your tool. Or if you want to create a UI element that floats over the top of other parts of the page, and/or always sits in the same place inside the browser window no matter how much the page is scrolled? Positioning makes such layout work possible.</p>
+
+    <p> 
+There are a number of different types of positioning that you can put into effect on HTML elements.
+    </p>  
+   </section>
+   
+   
+   <section id="Static_Position" class="redboxkid main-section">
+     <header>
+       <h2 class="mainheader"> Static Position</h2>
+     </header>
+     <p> Static positioning is the default that every element gets — it just means "put the element into its normal position in the document layout flow — nothing special to see here."</p>
+
+<p> To demonstrate this, and get your example set up for future sections, first add a <span>class</span> of <span>positioned</span> to the second <span><code> &lt;p&gt;</code></span> in the HTML: </p> 
+<pre>
+<code>
+ &lt;p class="positioned"&gt; ... &lt;/p&gt;   
+</code>
+</pre>
+<p>
+Now add the following rule to the bottom of your CSS:
+</p>
+<pre>
+.positioned 
+{
+  position: static;
+  background: yellow;
+}
+</pre>
+    <p>
+    If you now save and refresh, you'll see no difference at all, except for the updated background color of the 2nd paragraph. This is fine — as we said before, static positioning is the default behavior!
+    </p>
+   </section>
+   
+   <section id="Relative_Positioning" class="redboxkid main-section">
+   <header> 
+   <h2 class="mainheader"> 
+  Relative Positioning
+   </h2>
+   </header>
+   <p>
+   Relative positioning is the first position type we'll take a look at. This is very similar to static positioning, except that once the positioned element has taken its place in the normal layout flow, you can then modify its final position, including making it overlap other elements on the page. Go ahead and update the <span>position</span> declaration in your code:
+   </p>
+<pre>
+position: relative;
+</pre>
+   <p>
+   If you save and refresh at this stage, you won't see a change in the result at all.  So how do you modify the element's position? You need to use the top, bottom, left, and right properties, which we'll explain in the next section.
+   </p>
+   <h3 class="mainheader">
+   Introducing top, bottom, left, and right
+   </h3>
+   <p>
+   <span>top</span>, <span>bottom</span>, <span>left</span>, and <span>right</span> are used alongside <span>position</span> to specify exactly where to move the positioned element to. To try this out, add the following declarations to the .positioned rule in your CSS:
+   </p>
+<pre>
+top: 30px;
+left: 30px;
+</pre> 
+     <p>
+       This the way that relative positioning works — you need to think of an invisible force that pushes the specified side of the positioned box, moving it in the opposite direction. So for example, if you specify <span><code>top: 30px;</code></span>, a force pushes the top of the box, causing it to move downwards by 30px.
+     </p>  
+  </section>
+  
+  
+   <section id="Absolute_Positioning" class="redboxkid main-section">
+     <header> 
+       <h2 class="mainheader">
+        Absolute Positioning
+       </h2>
+     </header>
+     <p>
+       Absolute positioning brings very different results. Let's try changing the position declaration in your code as follows:
+     </p>
+<pre>
+position: absolute;
+</pre>
+     <p>
+       First, an absolutely positioned element no longer exists in the normal document layout flow. Instead, it sits on its own layer separate from everything else. This is very useful: it means that we can create isolated UI features that don't interfere with the position of other elements on the page.  For example, popup information boxes and control menus; rollover panels; UI features that can be dragged and dropped anywhere on the page; and so on...
+     </p>
+     <p>
+       Second, notice that the position of the element has changed — this is because <span>top</span>, <span>bottom</span>, <span>left</span>, and <span>right</span> behave in a different way with absolute positioning. Instead of specifying the direction the element should move in, they specify the distance the element should be from each containing element's sides. So in this case, we are saying that the absolutely positioned element should sit 30px from the top of the "containing element", and 30px from the left.
+     </p>
+  </section>
+   
+   <section id="Positioning_Contexts" class="redboxkid main-section">
+     <header>
+       <h2 class="mainheader">
+         Positioning Contexts
+       </h2>
+     </header>
+     <p>
+       Which element is the "containing element" of an absolutely positioned element? By default, it is the <span><code>&lt;html&gt;</code></span> element — the positioned element is nested inside the  <span><code>&lt;body&gt;</code></span> in the HTML source, but in the final layout, it is 30px away from the top and left of the edge of the page, which is the <span><code>&lt;html&gt;</code></span> element. This is more accurately called the element's positioning context.
+       </p>
+     <p>
+       We can change the positioning context — which element the absolutely positioned element is positioned relative to. This is done by setting positioning on one of the element's other ancestors — one of the elements it is nested inside (you can't position it relative to an element it is not nested inside). To demonstrate this, add the following declaration to your body rule:
+     </p>
+ <pre>
+ position: relative;
+ </pre>
+     <p>
+       The positioned element now sits relative to the <span><code>&lt;body&gt;</code></span> element.
+     </p>
+     
+  </section>
+   <section id="Introducing_z-index" class="redboxkid main-section">
+     <header>
+       <h2 class="mainheader">
+         Introducing z-index
+       </h2>
+     </header>
+     <p>
+       All this absolute positioning is good fun, but there is another thing we haven't considered yet — when elements start to overlap, what determines which elements appear on top of which other elements? In the example we've seen so far, we only have one positioned element in the positioning context, and it appears on the top, since positioned elements win over non-positioned elements. What about when we have more than one?
+     </p>
+     <p>
+       Try adding the following to your CSS, to make the first paragraph absolutely positioned too:
+     </p>
+<pre>
+p:nth-of-type(1) {
+  position: absolute;
+  background: lime;
+  top: 10px;
+  right: 30px;
+}
+</pre>
+     <p>
+       At this point you'll see the first paragraph colored green, moved out of the document flow, and positioned a bit above from where it originally was. It is also stacked below the original <span><code>.positioned</code></span>  paragraph, where the two overlap. This is because the <span><code>.positioned</code></span> paragraph is the second paragraph in the source order, and positioned elements later in the source order win over positioned elements earlier in the source order.
+     </p>
+     
+     <ul> z-index breakdown:
+       <li>z-index allows you to change stacking order.</li>
+       <li>"z-index" is a reference to the z-axis. </li>
+       <li>Web pages have a z-axis: an imaginary line that runs from the surface of your screen, towards your face.  </li>
+       <li> z-index values affect where positioned elements sit on that axis; positive values move them higher up the stack, and negative values move them lower down the stack. </li>
+       <li>By default, positioned elements all have a z-index of auto, which is effectively 0. </li>   
+     </ul>   
+  </section>
+   
+   
+   <section id="Fixed_Positioning" class="redboxkid main-section">
+     <header >
+       <h2 class="mainheader">
+         Fixed Positioning
+       </h2>
+     </header>
+     <p>
+      Let's now look at fixed positioning. This works in exactly the same way as absolute positioning, with one key difference: whereas absolute positioning fixes an element in place relative to the <span><code>&lt;html&gt;</code></span> element or its nearest positioned ancestor, fixed positioning fixes an element in place relative to the browser viewport itself. This means that you can create useful UI items that are fixed in place, like persisting navigation menus. 
+     </p>
+     <p>
+       Let's put together a simple example to show what we mean. First of all, delete the existing  <span><code>p:nth-of-type(1)</code></span> and  <span><code>.positioned</code></span> rules from your CSS.
+     </p>
+     <p>
+       Now, update the body rule to remove the <span><code>position: relative;</code></span>  declaration and add a fixed height, like so:
+     </p>
+     <pre>
+body 
+{
+  width: 500px;
+  height: 1400px;
+  margin: 0 auto;
+}
+     </pre>
+     <p>
+       Now we're going to give the <span><code>&lt;h1&gt;</code></span>element <span><code>position: fixed;</code></span>, and get it to sit at the top center of the viewport. Add the following rule to your CSS:
+     </p>
+     <pre>
+  h1 
+{
+  position: fixed;
+  top: 0;
+  width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 10px;
+}   
+     </pre>
+     <p>
+       The <span><code>top: 0;</code></span>is required to make it stick to the top of the screen; we then give the heading the same width as the content column and use the faithful old <span><code>margin: 0 auto;</code></span>trick to center it. We then give it a white background and some padding, so the content won't be visible underneath it.
+     </p>
+     <p>
+       If you save and refresh now, you'll see a fun little effect whereby the heading stays fixed, and the content appears to scroll up and disappear underneath it. But we could improve this more — at the moment some of the content starts off underneath the heading. This is because the positioned heading no longer appears in the document flow, so the rest of the content moves up to the top. We need to move it all down a bit; we can do this by setting some top margin on the first paragraph. Add this now:
+     </p>
+ <pre>
+ p:nth-of-type(1) {
+  margin-top: 60px;
+}
+ </pre>  
+  </section>
+   
+  
+   <section id="Position_Sticky" class="redboxkid main-section">
+     <header>
+       <h2 class="mainheader">
+         Position Sticky
+       </h2>
+     </header>
+     <p>
+       There is a another position value available called <span><code>position: sticky</code></span>, which is somewhat newer than the others. This is basically a hybrid between relative and fixed position, which allows a positioned element to act like it is relatively positioned until it is scrolled to a certain threshold point (e.g. 10px from the top of the viewport), after which it becomes fixed. This can be used for example to cause a navigation bar to scroll with the page but then stick to the top of the page. 
+     </p>
+<pre>
+    .positioned
+{
+  position: sticky;
+  top: 30px;
+  left: 30px;
+}
+</pre>
+     
+     <p>
+       In normal flow the dt elements will scroll with the content. Now add <span><code>position: sticky</code></span> to the dt element, with a top value of 0. In a supporting browser the headings will stick as they reach the top and be replaced by the following heading as it scrolls up.
+     </p>
+<pre>
+     dt 
+{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 1em 0;
+}
+</pre>
+     
+  </section>
+   
+   <section id="Summary" class="redboxkid main-section">
+     <header>
+       <h2 class="mainheader">Summary
+       </h2>
+     </header>
+     <p>
+       The Position element has many different uses that can be applied to a variety of situations.  
+     </p>
+     <p>
+       See how many ways to use it you can come up with!</p>
+     <h2 class="mainheader">
+       Reference
+     </h2>
+     <p>
+       All documentation on this page is taken from <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning">MDN</a></p>
+     
+  </section>
+  
+   
+  
+      
+ </div>
+  
+  
+  
+</main>
+</body>
+</html>

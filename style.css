@@ -1,0 +1,222 @@
+
+body
+{
+  margin: 0 auto;
+  max-width: 100%;
+}
+.mainheader
+{
+  margin-left: 25px;
+}
+p
+{
+  margin-left: 30px;
+  margin-right: 10px;
+}
+pre 
+{
+  margin-left: 40px;
+  background-color: #dedede;
+  width: 80%;
+  padding: 5px 5px 5px 5px;
+  border-radius: 4px;
+}
+p > span
+{
+  background-color: #dedede;
+  border-radius: 2px;
+  padding: 0px 2px 0px 2px;
+}
+ul 
+{
+  margin-left: 40px;
+}
+/* parent container main-doc to give flex ability to children */
+.main-doc
+{
+  display: flex;
+  flex-direction: row;
+  font-family: "Palatino Linotype";
+}
+  /* page designed to resize the nav element bluebox with two different media queries, the first query max-width 1000 is for displaying the blue navbar on the left as a column */
+@media all and (max-width: 1000px) 
+{
+  .main-doc
+  {
+    display: flex; 
+    flex-direction: column; 
+    
+  }
+  .bluebox
+  {
+    display: block;
+    width: 100%;
+    margin: 0 ;
+    flex-direction: column;
+    background-color: #c0ebff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 40vh;
+  }
+  .kidbluebox
+  {
+  display: flex; 
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  height: 50px; 
+  align-items: center;
+  padding-left: 30px;
+  font-size: 18px;
+  background-color: #c0ebff;
+  flex-wrap: wrap;
+  }
+ .kidblueboxtitle
+  {
+  background-color: #c0ebff;
+  display: flex; 
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  height: 75px;
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .redbox
+{
+  display: flex;
+  background-color: #ffffff;
+  height: 100%;
+  flex-direction: column;
+  width: 100%;
+ 
+}
+.redboxkid
+{
+  display: block;
+}
+}
+/* the second media query puts the blue nav bar on top and gives 100% width so that it takes up the whole top of the page for smaller screens, the two seperate media queries are required to change the element width, if only 1 media query is used the original width of 300px cannot be altered*/
+
+@media all and (min-width: 1001px)
+{ 
+.bluebox
+{
+  background-color: #c0ebff;
+  display: flex;
+  width: 300px;
+  height: 100vh;
+  flex-direction: column;
+}
+.kidbluebox
+{
+  display: flex; 
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  height: 50px;   
+  align-items: center;
+  padding-left: 30px;
+  font-size: 18px;
+  background-color: #c0ebff;
+}
+.kidblueboxtitle
+{
+  display: flex;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding-right: -2px;
+  width: 100%;
+  height: 75px; 
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+}
+ body
+  {
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-y: hidden;
+  }
+
+.redbox
+{ 
+  overflow-y: scroll;
+  display: flex;
+  background-color: #ffffff;
+  height: 100vh;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 45px;
+}
+.redboxkid
+{
+  display: block;
+}
+}
+
+.main-section
+{
+  
+}
+.nav-link
+{
+  text-decoration: none;
+  color: inherit;
+  
+  
+}
+#main-doc
+{
+  
+}
+#navbar
+{
+  
+}
+#Document_Flow
+{
+  
+}
+#Intro_to_Positioning
+{
+  
+}
+#Static_Position
+{
+  
+}
+#Relative_Positioning
+{
+  
+}
+#Absolute_Positioning
+{
+  
+}
+#Positioning_Contexts
+{
+  
+}
+#Introducing_z-index
+{
+  
+}
+#Fixed_Positioning
+{
+  
+}
+#Position_Sticky
+{
+  
+}
+#Summary
+{
+  
+}
